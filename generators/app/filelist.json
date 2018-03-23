@@ -1,0 +1,52 @@
+{
+    "files": [
+        {
+            "local": ".gitignore"
+        },
+        {
+            "local": "nodemon.json"
+        },
+        {
+            "local": "tsconfig.json"
+        },
+        {
+            "local": "src/app.ts"
+        },
+        {
+            "local": "src/configuration.ts"
+        },
+        {
+            "local": "src/index.ts"
+        },
+        {
+            "local": "src/logger.ts"
+        },
+        {
+            "local": "src/session.ts"
+        },
+        {
+            "local": "src/middleware/cors.ts"
+        },
+        {
+            "local": "src/middleware/index.ts"
+        },
+        {
+            "local": "src/middleware/oidc.ts"
+        },
+        {
+            "local": "src/models/configuration.ts"
+        },
+        {
+            "local": "src/models/logging.ts"
+        },
+        {
+            "local": "src/routers/.gitkeep"
+        },
+        {
+            "local": "src/routers/index.ts"
+        },
+        {
+            "local": "src/routers/mockApi.ts"
+        }
+    ]
+}
