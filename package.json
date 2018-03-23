@@ -1,5 +1,5 @@
 {
-    "name": "generator-gw-microservice",
+    "name": "generator-node-microservice",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
