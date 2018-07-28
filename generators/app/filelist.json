@@ -10,6 +10,9 @@
             "local": "tsconfig.json"
         },
         {
+            "local": "tslint.json"
+        },
+        {
             "local": "src/app.ts"
         },
         {
@@ -31,13 +34,25 @@
             "local": "src/middleware/index.ts"
         },
         {
-            "local": "src/middleware/oidc.ts"
+            "local": "src/models/logging/error.ts"
+        },
+        {
+            "local": "src/models/logging/index.ts"
+        },
+        {
+            "local": "src/models/logging/levels.ts"
+        },
+        {
+            "local": "src/models/logging/logger.ts"
+        },
+        {
+            "local": "src/models/logging/message.ts"
         },
         {
             "local": "src/models/configuration.ts"
         },
         {
-            "local": "src/models/logging.ts"
+            "local": "src/models/index.ts"
         },
         {
             "local": "src/routers/.gitkeep"
@@ -46,7 +61,7 @@
             "local": "src/routers/index.ts"
         },
         {
-            "local": "src/routers/mockApi.ts"
+            "local": "src/routers/status.ts"
         }
     ]
 }

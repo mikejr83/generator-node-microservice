@@ -1,14 +1,13 @@
 import * as fs from "fs-extra";
 import * as normalizePort from "normalize-port";
+import * as process from "process";
 
-import { IConfiguration, defaultConfiguration } from "./models/configuration";
-import { LogLevel } from "./models/logging";
+import { defaultConfiguration, LogLevel, IServiceConfiguration } from "./models";
 
-
-export class Configuration implements IConfiguration {
-    logLevel: LogLevel;
-    port: any;
-    publicPaths: string[];
+export class Configuration implements IServiceConfiguration {
+    public logLevel: LogLevel;
+    public port: any;
+    public publicPaths: string[];
 
     constructor() {
         this.load();
@@ -30,10 +29,10 @@ export class Configuration implements IConfiguration {
             fs.exists(filename, (exists) => {
                 resolve(exists);
             });
-        })
+        });
 
         if (fileExists) {
-            const fileConfig: IConfiguration = await fs.readJson(filename);
+            const fileConfig: IServiceConfiguration = await fs.readJson(filename);
 
             Object.assign(this, fileConfig);
         }
@@ -44,6 +43,5 @@ export class Configuration implements IConfiguration {
         this.port = normalizePort(process.env.PORT || 4200);
     }
 }
-
 
 export default new Configuration();

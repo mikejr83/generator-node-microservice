@@ -16,6 +16,11 @@ module.exports = class extends Generator {
             desc: 'Skips the the installation of dependencies',
             type: Boolean
         });
+
+        this.option('skip-git', {
+            desc: 'Skips setup of the current folder as a git repository',
+            type: Boolean
+        });
     }
 
     initializing() {
@@ -32,7 +37,9 @@ module.exports = class extends Generator {
         };
 
         this.composeWith(require.resolve('generator-npm-init/app'), packageConfig);
-        this.composeWith(require.resolve('generator-git-init'));
+        if (!this.options['skip-git']) {
+            this.composeWith(require.resolve('generator-git-init'));
+        }
     }
 
     prompting() {
@@ -58,6 +65,7 @@ module.exports = class extends Generator {
     install() {
         if (!this.options['skip-install']) {
             this.installDependencies({
+                bower: false,
                 npm: true
             });
         }

@@ -1,31 +1,28 @@
+import * as process from "process";
 import * as winston from "winston";
 import { Logger } from "winston";
 
-import { IConfiguration } from "./models/configuration";
-import { LogLevel } from "./models/logging";
+import { IServiceConfiguration, LogLevel } from "./models";
 
 let theLogger = new Logger({
+    level: process.env.LOG_LEVEL || LogLevel.silly,
     transports: [
         new (winston.transports.Console)()
     ],
-    level: process.env.LOG_LEVEL || LogLevel.silly
 });
 
 function buildLogger(logLevel: LogLevel): winston.LoggerInstance {
     return new Logger({
+        level: logLevel,
         transports: [
             new (winston.transports.Console)()
         ],
-        level: logLevel
     });
 }
 
-export function resetLogger(configuration: IConfiguration) {
+export function resetLogger(configuration: IServiceConfiguration) {
     theLogger = buildLogger(configuration.logLevel);
     theLogger.silly("Logger reset");
 }
 
 export default theLogger;
-
-
-
